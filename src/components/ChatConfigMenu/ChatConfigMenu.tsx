@@ -13,7 +13,7 @@ import {
 } from '@components/ConfigMenu/ConfigMenu';
 
 import { ModelOptions } from '@type/chat';
-import { _defaultChatConfig, _defaultSystemMessage } from '@constants/chat';
+import { _defaultChatConfig } from '@constants/chat';
 
 const ChatConfigMenu = () => {
   const { t } = useTranslation('model');
@@ -35,13 +35,6 @@ const ChatConfigPopup = ({
 }) => {
   const config = useStore.getState().defaultChatConfig;
   const setDefaultChatConfig = useStore((state) => state.setDefaultChatConfig);
-  const setDefaultSystemMessage = useStore(
-    (state) => state.setDefaultSystemMessage
-  );
-
-  const [_systemMessage, _setSystemMessage] = useState<string>(
-    useStore.getState().defaultSystemMessage
-  );
   const [_model, _setModel] = useState<ModelOptions>(config.model);
   const [_maxToken, _setMaxToken] = useState<number>(config.max_tokens);
   const [_temperature, _setTemperature] = useState<number>(config.temperature);
@@ -64,7 +57,6 @@ const ChatConfigPopup = ({
       presence_penalty: _presencePenalty,
       frequency_penalty: _frequencyPenalty,
     });
-    setDefaultSystemMessage(_systemMessage);
     setIsModalOpen(false);
   };
 
@@ -75,7 +67,6 @@ const ChatConfigPopup = ({
     _setTopP(_defaultChatConfig.top_p);
     _setPresencePenalty(_defaultChatConfig.presence_penalty);
     _setFrequencyPenalty(_defaultChatConfig.frequency_penalty);
-    _setSystemMessage(_defaultSystemMessage);
   };
 
   return (
@@ -85,10 +76,6 @@ const ChatConfigPopup = ({
       handleConfirm={handleSave}
     >
       <div className='p-6 border-b border-gray-200 dark:border-gray-600 w-[90vw] max-w-full text-sm text-gray-900 dark:text-gray-300'>
-        <DefaultSystemChat
-          _systemMessage={_systemMessage}
-          _setSystemMessage={_setSystemMessage}
-        />
         <ModelSelector _model={_model} _setModel={_setModel} />
         <MaxTokenSlider
           _maxToken={_maxToken}
@@ -147,9 +134,6 @@ const DefaultSystemChat = ({
 
   return (
     <div>
-      <div className='block text-sm font-medium text-gray-900 dark:text-white'>
-        {t('defaultSystemMessage')}
-      </div>
       <textarea
         className='my-2 mx-0 px-2 resize-none rounded-lg bg-transparent overflow-y-hidden leading-7 p-1 border border-gray-400/50 focus:ring-1 focus:ring-blue w-full max-h-10 transition-all'
         onFocus={handleOnFocus}
