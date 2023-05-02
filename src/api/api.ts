@@ -16,13 +16,20 @@ export const getChatCompletion = async (
   if (apiKey) headers.Authorization = `Bearer ${apiKey}`;
   if (isAzureEndpoint(endpoint) && apiKey) headers['api-key'] = apiKey;
 
+  var sentConfig = {
+    model: config.model,
+    temperature: config.temperature,
+    presence_penalty: config.presence_penalty,
+    top_p: config.top_p,
+    frequency_penalty: config.frequency_penalty,
+  }
+
   const response = await fetch(endpoint, {
     method: 'POST',
     headers,
     body: JSON.stringify({
       messages,
-      ...config,
-      max_tokens: null,
+      ...sentConfig,
     }),
   });
   if (!response.ok) throw new Error(await response.text());
