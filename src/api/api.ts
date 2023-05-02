@@ -65,7 +65,6 @@ export const getChatCompletionStream = async (
     body: JSON.stringify({
       messages,
       ...sentConfig,
-      max_tokens: null,
       stream: true,
     }),
   });
