@@ -26,6 +26,14 @@ export const getChatCompletion = async (
   messages: MessageInterface[],
   config: ConfigInterface
 ) => {
+  var sentConfig = {
+    model: config.model,
+    temperature: config.temperature,
+    presence_penalty: config.presence_penalty,
+    top_p: config.top_p,
+    frequency_penalty: config.frequency_penalty,
+  }
+
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
@@ -34,7 +42,7 @@ export const getChatCompletion = async (
     },
     body: JSON.stringify({
       messages,
-      ...config,
+      ...sentConfig,
     }),
   });
   if (!response.ok) throw new Error(await response.text());
@@ -48,6 +56,14 @@ export const getChatCompletionStream = async (
   messages: MessageInterface[],
   config: ConfigInterface
 ) => {
+  var sentConfig = {
+    model: config.model,
+    temperature: config.temperature,
+    presence_penalty: config.presence_penalty,
+    top_p: config.top_p,
+    frequency_penalty: config.frequency_penalty,
+  }
+
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
@@ -56,7 +72,7 @@ export const getChatCompletionStream = async (
     },
     body: JSON.stringify({
       messages,
-      ...config,
+      ...sentConfig,
       stream: true,
     }),
   });
