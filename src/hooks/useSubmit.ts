@@ -24,11 +24,11 @@ const useSubmit = () => {
   ): Promise<string> => {
     let data;
     try{
-    if (!apiKey || apiKey.length === 0) {
-      // official endpoint
-      // if (apiEndpoint === officialAPIEndpoint) {
-      //   throw new Error(t('noApiKeyWarning') as string);
-      // }
+      if (!apiKey || apiKey.length === 0) {
+        // official endpoint
+        // if (apiEndpoint === officialAPIEndpoint) {
+        //   throw new Error(t('noApiKeyWarning') as string);
+        // }
 
         // other endpoints
         data = await getChatCompletion(
