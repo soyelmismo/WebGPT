@@ -27,10 +27,10 @@ export const modelOptions: ModelOptions[] = [
   'llama-13b', 
   'oasst-pythia-12b', 
   'fastchat-t5-3b', 
-  'test-sage', 
-  'test-claude+', 
-  'test-claude-instant-100k', 
-  'test-claude-instant',
+  'sage', 
+  'claude+', 
+  'claude-instant-100k', 
+  'claude-instant',
 ];
 
 export const defaultModel = 'gpt-3.5-turbo';
@@ -51,10 +51,10 @@ export const modelMaxToken = {
   'llama-13b': 2048, 
   'oasst-pythia-12b': 2048, 
   'fastchat-t5-3b': 2048, 
-  'test-sage': 5200, 
-  'test-claude+': 11000, 
-  'test-claude-instant-100k': 100000, 
-  'test-claude-instant': 11000,
+  'sage': 5200, 
+  'claude+': 11000, 
+  'claude-instant-100k': 100000, 
+  'claude-instant': 11000,
 };
 
 export const modelCost = {
@@ -118,19 +118,19 @@ export const modelCost = {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
-  'test-sage': {
+  'sage': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
-  'test-claude+': {
+  'claude+': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
-  'test-claude-instant-100k': {
+  'claude-instant-100k': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
-  'test-claude-instant': {
+  'claude-instant': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
