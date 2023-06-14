@@ -75,8 +75,8 @@ export const migrateV6 = (persistedState: LocalStorageInterfaceV6ToV7) => {
   ) {
     persistedState.apiEndpoint = 'https://chatgpt-api.shn.hk/v1/';
   }
-  if (!persistedState.apiKey || persistedState.apiKey.length === 0)
-    persistedState.apiKey = '';
+  if (!persistedState.apiKey || Object.keys(persistedState.apiKey).length === 0)
+    persistedState.apiKey = {};
 };
 
 export const migrateV7 = (persistedState: LocalStorageInterfaceV7oV8) => {

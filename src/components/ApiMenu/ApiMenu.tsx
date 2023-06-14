@@ -16,18 +16,28 @@ const ApiMenu = ({
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const { t } = useTranslation(['main', 'api']);
-
-  const apiKey = useStore((state) => state.apiKey);
   const setApiKey = useStore((state) => state.setApiKey);
+  const apiKeys = useStore((state) => state.apiKeys);
   const apiEndpoint = useStore((state) => state.apiEndpoint);
   const setApiEndpoint = useStore((state) => state.setApiEndpoint);
 
-  const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
   const [_apiEndpoint, _setApiEndpoint] = useState<string>(apiEndpoint);
+  const [_apiKey, _setApiKey] = useState<string>(apiKeys[apiEndpoint] || '');
   const [_customEndpoint, _setCustomEndpoint] = useState<boolean>(
     !allEndpoints.includes(apiEndpoint)
   );
-
+  const handleApiEndpointChange = (newApiEndpoint: string) => {
+    _setApiEndpoint(newApiEndpoint);
+    setApiEndpoint(newApiEndpoint); // Actualiza el estado global de apiEndpoint
+  };
+  const handleApiKeyChange = (newApiKey: string) => {
+    _setApiKey(newApiKey);
+    setApiKey(newApiKey);
+  };
+  useEffect(() => {
+    _setApiKey(apiKeys[apiEndpoint] || '');
+  }, [apiKeys, apiEndpoint]);
+  
   const handleSave = () => {
     setApiKey(_apiKey);
     setApiEndpoint(_apiEndpoint);
@@ -35,9 +45,14 @@ const ApiMenu = ({
   };
 
   const handleToggleCustomEndpoint = () => {
-    if (_customEndpoint) _setApiEndpoint(defaultAPIEndpoint);
-    else _setApiEndpoint('');
     _setCustomEndpoint((prev) => !prev);
+    if (!_customEndpoint) {
+      _setApiEndpoint('');
+      setApiEndpoint('');
+    } else {
+      _setApiEndpoint(defaultAPIEndpoint);
+      setApiEndpoint(defaultAPIEndpoint);
+    }
   };
 
   return (
@@ -48,7 +63,7 @@ const ApiMenu = ({
     >
       <div className='p-6 border-b border-gray-200 dark:border-gray-600'>
         <label className='flex gap-2 text-gray-900 dark:text-gray-300 text-sm items-center mb-4'>
-          <input
+        <input
             type='checkbox'
             checked={_customEndpoint}
             className='w-4 h-4'
@@ -67,13 +82,13 @@ const ApiMenu = ({
               className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
               value={_apiEndpoint}
               onChange={(e) => {
-                _setApiEndpoint(e.target.value);
+                handleApiEndpointChange(e.target.value);
               }}
             />
           ) : (
             <ApiEndpointSelector
               _apiEndpoint={_apiEndpoint}
-              _setApiEndpoint={_setApiEndpoint}
+              handleApiEndpointChange={handleApiEndpointChange}
             />
           )}
         </div>
@@ -87,7 +102,7 @@ const ApiMenu = ({
             className='text-gray-800 dark:text-white p-3 text-sm border-none bg-gray-200 dark:bg-gray-600 rounded-md m-0 w-full mr-0 h-8 focus:outline-none'
             value={_apiKey}
             onChange={(e) => {
-              _setApiKey(e.target.value);
+              handleApiKeyChange(e.target.value);
             }}
           />
         </div>
@@ -120,10 +135,10 @@ const ApiMenu = ({
 
 const ApiEndpointSelector = ({
   _apiEndpoint,
-  _setApiEndpoint,
+  handleApiEndpointChange,
 }: {
   _apiEndpoint: string;
-  _setApiEndpoint: React.Dispatch<React.SetStateAction<string>>;
+  handleApiEndpointChange: (newApiEndpoint: string) => void;
 }) => {
   const [dropDown, setDropDown, dropDownRef] = useHideOnOutsideClick();
 
@@ -152,7 +167,7 @@ const ApiEndpointSelector = ({
             <li
               className='px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer truncate'
               onClick={() => {
-                _setApiEndpoint(endpoint);
+                handleApiEndpointChange(endpoint);
                 setDropDown(false);
               }}
               key={endpoint}

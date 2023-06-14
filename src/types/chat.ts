@@ -60,7 +60,7 @@ export type TotalTokenUsed = {
 export interface LocalStorageInterfaceV0ToV1 {
   chats: ChatInterface[];
   currentChatIndex: number;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiFree: boolean;
   apiFreeEndpoint: string;
   theme: Theme;
@@ -69,7 +69,7 @@ export interface LocalStorageInterfaceV0ToV1 {
 export interface LocalStorageInterfaceV1ToV2 {
   chats: ChatInterface[];
   currentChatIndex: number;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiFree: boolean;
   apiFreeEndpoint: string;
   apiEndpoint?: string;
@@ -79,7 +79,7 @@ export interface LocalStorageInterfaceV1ToV2 {
 export interface LocalStorageInterfaceV2ToV3 {
   chats: ChatInterface[];
   currentChatIndex: number;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiFree: boolean;
   apiFreeEndpoint: string;
   apiEndpoint?: string;
@@ -89,7 +89,7 @@ export interface LocalStorageInterfaceV2ToV3 {
 export interface LocalStorageInterfaceV3ToV4 {
   chats: ChatInterface[];
   currentChatIndex: number;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiFree: boolean;
   apiFreeEndpoint: string;
   apiEndpoint?: string;
@@ -101,7 +101,7 @@ export interface LocalStorageInterfaceV3ToV4 {
 export interface LocalStorageInterfaceV4ToV5 {
   chats: ChatInterface[];
   currentChatIndex: number;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiFree: boolean;
   apiFreeEndpoint: string;
   apiEndpoint?: string;
@@ -113,7 +113,7 @@ export interface LocalStorageInterfaceV4ToV5 {
 export interface LocalStorageInterfaceV5ToV6 {
   chats: ChatInterface[];
   currentChatIndex: number;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiFree: boolean;
   apiFreeEndpoint: string;
   apiEndpoint?: string;
@@ -126,7 +126,7 @@ export interface LocalStorageInterfaceV6ToV7 {
   chats: ChatInterface[];
   currentChatIndex: number;
   apiFree?: boolean;
-  apiKey: string;
+  apiKey: Record<string, string>;
   apiEndpoint: string;
   theme: Theme;
   autoTitle: boolean;

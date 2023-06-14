@@ -15,6 +15,7 @@ function App() {
   const setChats = useStore((state) => state.setChats);
   const setTheme = useStore((state) => state.setTheme);
   const setApiKey = useStore((state) => state.setApiKey);
+  const setApiKeys = useStore((state) => state.setApiKeys);
   const setCurrentChatIndex = useStore((state) => state.setCurrentChatIndex);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
     // legacy local storage
     const oldChats = localStorage.getItem('chats');
     const apiKey = localStorage.getItem('apiKey');
+    const apiKeys = localStorage.getItem('apiKeys');
     const theme = localStorage.getItem('theme');
 
     if (apiKey) {
@@ -35,7 +37,10 @@ function App() {
       setApiKey(apiKey);
       localStorage.removeItem('apiKey');
     }
-
+    if (apiKeys) {
+      // existing local storage
+      setApiKeys(JSON.parse(apiKeys));
+    }
     if (theme) {
       // legacy local storage
       setTheme(theme as Theme);

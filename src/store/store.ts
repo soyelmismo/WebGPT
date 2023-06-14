@@ -32,7 +32,10 @@ export type StoreState = ChatSlice &
   AuthSlice &
   ConfigSlice &
   PromptSlice &
-  ToastSlice;
+  ToastSlice & {
+    apiKeys: Record<string, string>;
+    setApiKeys: (apiKeys: Record<string, string>) => void;
+  };
 
 export type StoreSlice<T> = (
   set: StoreApi<StoreState>['setState'],
@@ -43,6 +46,8 @@ export const createPartializedState = (state: StoreState) => ({
   chats: state.chats,
   currentChatIndex: state.currentChatIndex,
   apiKey: state.apiKey,
+  apiKeys: state.apiKeys,
+  setApiKeys: state.setApiKeys,
   apiEndpoint: state.apiEndpoint,
   theme: state.theme,
   autoTitle: state.autoTitle,
@@ -69,7 +74,9 @@ const useStore = create<StoreState>()(
       ...createConfigSlice(set, get),
       ...createPromptSlice(set, get),
       ...createToastSlice(set, get),
-    }),
+      setApiKeys: (apiKeys: Record<string, string>) =>
+      set((state) => ({ apiKeys })),
+      }),
     {
       name: 'free-chat-gpt',
       partialize: (state) => createPartializedState(state),
