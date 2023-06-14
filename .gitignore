@@ -26,3 +26,4 @@ dist-ssr
 release/
 
 .env
+docker-compose.yml

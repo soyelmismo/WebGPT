@@ -6,7 +6,7 @@ import useHideOnOutsideClick from '@hooks/useHideOnOutsideClick';
 
 import PopupModal from '@components/PopupModal';
 
-import { availableEndpoints, defaultAPIEndpoint } from '@constants/auth';
+import { defaultAPIEndpoint, allEndpoints } from '@constants/auth';
 
 import DownChevronArrow from '@icon/DownChevronArrow';
 
@@ -25,7 +25,7 @@ const ApiMenu = ({
   const [_apiKey, _setApiKey] = useState<string>(apiKey || '');
   const [_apiEndpoint, _setApiEndpoint] = useState<string>(apiEndpoint);
   const [_customEndpoint, _setCustomEndpoint] = useState<boolean>(
-    !availableEndpoints.includes(apiEndpoint)
+    !allEndpoints.includes(apiEndpoint)
   );
 
   const handleSave = () => {
@@ -148,7 +148,7 @@ const ApiEndpointSelector = ({
           className='text-sm text-gray-700 dark:text-gray-200 p-0 m-0'
           aria-labelledby='dropdownDefaultButton'
         >
-          {availableEndpoints.map((endpoint) => (
+          {allEndpoints.map((endpoint) => (
             <li
               className='px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer truncate'
               onClick={() => {
