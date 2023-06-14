@@ -87,7 +87,7 @@ const AboutMenu = () => {
                     ns='about'
                     components={[
                       <a
-                        href='https://github.com/acheong08/BetterChatGPT'
+                        href='https://github.com/soyelmismo/WebGPT'
                         target='_blank'
                         className='link'
                       />,
