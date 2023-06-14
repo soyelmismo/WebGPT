@@ -49,7 +49,7 @@ export interface Folder {
   color?: string;
 }
 
-export type ModelOptions = 'gpt-3.5-turbo' | 'gpt-3.5-turbo-16k' | 'gpt-3.5-turbo-0613' | 'gpt-4' | 'gpt-4-32k' | 'bard' | 'alpaca-13b' | 'vicuna-13b' | 'koala-13b' | 'llama-13b' | 'oasst-pythia-12b' | 'fastchat-t5-3b' | 'test-sage' | 'test-claude+' | 'test-claude-instant-100k' | 'test-claude-instant';
+export type ModelOptions = 'gpt-3.5-turbo' | 'gpt-3.5-turbo-16k' | 'gpt-3.5-turbo-0613' | 'gpt-3.5-turbo-16k-0613' | 'gpt-4' | 'gpt-4-0613' | 'gpt-4-32k' | 'gpt-4-32k-0613' | 'bard' | 'alpaca-13b' | 'vicuna-13b' | 'koala-13b' | 'llama-13b' | 'oasst-pythia-12b' | 'fastchat-t5-3b' | 'test-sage' | 'test-claude+' | 'test-claude-instant-100k' | 'test-claude-instant';
 
 export type TotalTokenUsed = {
   [model in ModelOptions]?: {
