@@ -13,7 +13,7 @@ WORKDIR /home/appuser/app
 COPY --chown=appuser:appgroup package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY --chown=appuser:appgroup . .
-RUN yarn build
+RUN yarn build && yarn cache clean
 
 EXPOSE 3000
 CMD ["/home/appuser/.yarn/bin/serve", "-s", "dist", "-l", "3000"]
