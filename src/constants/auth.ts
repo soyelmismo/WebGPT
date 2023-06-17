@@ -9,6 +9,7 @@ const additionalEndpoints = [
   'https://api.hypere.app/v1/chat/completions',
   'https://api.cattto.repl.co/v1/chat/completions',
   'https://api.cattogpt.repl.co/v1/chat/completions',
+  'https://purgpt.xyz/v1/chat/completions',
 ];
 
 export const allEndpoints = [officialAPIEndpoint, ...additionalEndpoints];
