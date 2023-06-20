@@ -54,6 +54,7 @@ export const createPartializedState = (state: StoreState) => ({
   advancedMode: state.advancedMode,
   prompts: state.prompts,
   defaultChatConfig: state.defaultChatConfig,
+  defaultSystemMessage: state.defaultSystemMessage,
   hideMenuOptions: state.hideMenuOptions,
   firstVisit: state.firstVisit,
   hideSideMenu: state.hideSideMenu,

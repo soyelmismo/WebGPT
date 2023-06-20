@@ -132,6 +132,7 @@ export interface LocalStorageInterfaceV6ToV7 {
   autoTitle: boolean;
   prompts: Prompt[];
   defaultChatConfig: ConfigInterface;
+  defaultSystemMessage: string;
   hideMenuOptions: boolean;
   firstVisit: boolean;
   hideSideMenu: boolean;

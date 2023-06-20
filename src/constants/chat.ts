@@ -10,6 +10,12 @@ const dateString =
   '-' +
   ('0' + date.getDate()).slice(-2);
 
+// default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
+  export const _defaultSystemMessage =
+  import.meta.env.VITE_DEFAULT_SYSTEM_MESSAGE ??
+  `Be kindful. Respond using Markdown.`;
+
+
 
 export const modelOptions: ModelOptions[] = [
   'gpt-3.5-turbo',
@@ -154,7 +160,9 @@ export const generateDefaultChat = (
   id: uuidv4(),
   title: title ? title : 'New Chat',
   messages:
-    [],
+    useStore.getState().defaultSystemMessage.length > 0
+      ? [{ role: 'system', content: useStore.getState().defaultSystemMessage }]
+      : [],
   config: { ...useStore.getState().defaultChatConfig },
   titleSet: false,
   folder,
