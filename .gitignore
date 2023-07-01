@@ -24,6 +24,4 @@ dist-ssr
 *.sw?
 
 release/
-
-.env
 docker-compose.yml
