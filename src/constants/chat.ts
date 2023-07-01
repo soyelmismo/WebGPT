@@ -27,6 +27,7 @@ export const modelOptions: ModelOptions[] = [
   'gpt-4-32k',
   'gpt-4-32k-0613',
   'bard',
+  'chat-bison-001',
   'alpaca-13b',
   'vicuna-13b',
   'koala-13b',
@@ -51,6 +52,7 @@ export const modelMaxToken = {
   'gpt-4-32k': 32768,
   'gpt-4-32k-0613': 32768,
   'bard': 4096,
+  'chat-bison-001': 10000,
   'alpaca-13b' : 2048,
   'vicuna-13b': 2048,
   'koala-13b': 2048,
@@ -97,6 +99,10 @@ export const modelCost = {
     completion: { price: 0.12, unit: 1000 },
   },
   'bard': {
+    prompt: { price: 0.0015, unit: 1000 },
+    completion: { price: 0.002, unit: 1000 },
+  },
+  'chat-bison-001': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
