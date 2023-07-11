@@ -18,37 +18,45 @@ const dateString =
 
 
 export const modelOptions: ModelOptions[] = [
-  'gpt-3.5-turbo',
-  'gpt-3.5-turbo-16k',
+  'gpt-3.5-turbo', 
+  "gpt-3.5-turbo-poe", 
+  'gpt-3.5-turbo-16k', 
+  "gpt-3.5-turbo-16k-poe", 
   'gpt-3.5-turbo-0301',
-  'gpt-4',
-  'gpt-4-0314',
-  'gpt-4-32k',
-  'gpt-4-32k-0314',
-  'bard',
-  'bing',
-  'chat-bison-001',
-  'alpaca-13b',
-  'vicuna-13b',
-  'koala-13b',
-  'llama-13b', 
+  'gpt-4', 
+  'gpt-4-poe', 
+  'gpt-4-0314', 
+  'gpt-4-32k', 
+  "gpt-4-32k-poe", 
+  'gpt-4-32k-0314', 
+  'bard', 
+  'bing', 
+  'chat-bison-001', 
+  'alpaca-13b', 
+  'vicuna-13b', 
+  'koala-13b', 
+  'llama-13b',  
   'oasst-pythia-12b', 
   'fastchat-t5-3b', 
   'sage', 
-  'claude+', 
+  'claude-2-100k', 
   'claude-instant-100k', 
-  'claude-instant',
+  'claude-instant', 
 ];
 
 export const defaultModel = 'gpt-3.5-turbo';
 
 export const modelMaxToken = {
   'gpt-3.5-turbo': 4096,
+  'gpt-3.5-turbo-poe': 2800,
   'gpt-3.5-turbo-16k': 16384,
+  'gpt-3.5-turbo-16k-poe': 16000,
   'gpt-3.5-turbo-0301': 4096,
   'gpt-4': 8192,
+  'gpt-4-poe': 2100,
   'gpt-4-0314': 8192,
   'gpt-4-32k': 32768,
+  'gpt-4-32k-poe': 32768,
   'gpt-4-32k-0314': 32768,
   'bard': 4096,
   'bing': 32768,
@@ -60,7 +68,7 @@ export const modelMaxToken = {
   'oasst-pythia-12b': 2048, 
   'fastchat-t5-3b': 2048, 
   'sage': 5200, 
-  'claude+': 11000, 
+  'claude-2-100k': 100000, 
   'claude-instant-100k': 100000, 
   'claude-instant': 11000,
 };
@@ -74,6 +82,14 @@ export const modelCost = {
     prompt: { price: 0.003, unit: 1000 },
     completion: { price: 0.004, unit: 1000 },
   },
+  'gpt-3.5-turbo-poe': {
+    prompt: { price: 0.0015, unit: 1000 },
+    completion: { price: 0.002, unit: 1000 },
+  },
+  'gpt-3.5-turbo-16k-poe': {
+    prompt: { price: 0.003, unit: 1000 },
+    completion: { price: 0.004, unit: 1000 },
+  },
   'gpt-3.5-turbo-0301': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
@@ -82,11 +98,19 @@ export const modelCost = {
     prompt: { price: 0.03, unit: 1000 },
     completion: { price: 0.06, unit: 1000 },
   },
+  'gpt-4-poe': {
+    prompt: { price: 0.03, unit: 1000 },
+    completion: { price: 0.06, unit: 1000 },
+  },
   'gpt-4-0314': {
     prompt: { price: 0.03, unit: 1000 },
     completion: { price: 0.06, unit: 1000 },
   },
   'gpt-4-32k': {
+    prompt: { price: 0.06, unit: 1000 },
+    completion: { price: 0.12, unit: 1000 },
+  },
+  'gpt-4-32k-poe': {
     prompt: { price: 0.06, unit: 1000 },
     completion: { price: 0.12, unit: 1000 },
   },
@@ -134,7 +158,7 @@ export const modelCost = {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
-  'claude+': {
+  'claude-2-100k': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },

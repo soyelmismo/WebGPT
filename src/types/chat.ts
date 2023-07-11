@@ -49,7 +49,7 @@ export interface Folder {
   color?: string;
 }
 
-export type ModelOptions = 'gpt-3.5-turbo' | 'gpt-3.5-turbo-16k' | 'gpt-3.5-turbo-0301' | 'gpt-4' | 'gpt-4-0314' | 'gpt-4-32k' | 'gpt-4-32k-0314' | 'bard' | 'bing' | 'chat-bison-001' | 'alpaca-13b' | 'vicuna-13b' | 'koala-13b' | 'llama-13b' | 'oasst-pythia-12b' | 'fastchat-t5-3b' | 'sage' | 'claude+' | 'claude-instant-100k' | 'claude-instant';
+export type ModelOptions = 'gpt-3.5-turbo' | 'gpt-3.5-turbo-poe' | 'gpt-3.5-turbo-16k' | 'gpt-3.5-turbo-16k-poe' | 'gpt-3.5-turbo-0301' | 'gpt-4' | 'gpt-4-poe' | 'gpt-4-0314' | 'gpt-4-32k' | 'gpt-4-32k-poe' | 'gpt-4-32k-0314' | 'bard' | 'bing' | 'chat-bison-001' | 'alpaca-13b' | 'vicuna-13b' | 'koala-13b' | 'llama-13b' | 'oasst-pythia-12b' | 'fastchat-t5-3b' | 'sage' | 'claude-2-100k' | 'claude-instant-100k' | 'claude-instant';
 
 export type TotalTokenUsed = {
   [model in ModelOptions]?: {
