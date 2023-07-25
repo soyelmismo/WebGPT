@@ -185,7 +185,7 @@ export const _defaultChatConfig: ConfigInterface = {
   max_tokens: defaultUserMaxToken,
   temperature: 0.3,
   presence_penalty: 0,
-  top_p: 1,
+  top_p: 0.95,
   frequency_penalty: 0,
 };
 
