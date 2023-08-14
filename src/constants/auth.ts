@@ -9,6 +9,7 @@ const additionalEndpoints = [
   'https://api.hypere.app/v1/chat/completions',
   'https://api.catto.codes/v1/chat/completions',
   'https://api.pawan.krd/v1/chat/completions',
+  'https://gpt.daku.tech/v1/chat/completions',
 ];
 
 export const allEndpoints = [officialAPIEndpoint, ...additionalEndpoints];
