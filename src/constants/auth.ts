@@ -5,6 +5,7 @@ export const defaultAPIEndpoint =
 const additionalEndpoints = [
   'https://api.openai.com/v1/chat/completions',
   'https://chimeragpt.adventblocks.cc/api/v1/chat/completions',
+  'https://api.naga.ac/v1/chat/completions',
   'https://free.catto.codes/v1/chat/completions',
   'https://api.hypere.app/v1/chat/completions',
   'https://api.catto.codes/v1/chat/completions',
