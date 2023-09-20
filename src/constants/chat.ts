@@ -35,6 +35,7 @@ export const modelOptions: ModelOptions[] = [
   'alpaca-13b', 
   'vicuna-13b', 
   'koala-13b', 
+  'falcon-180b-chat', 
   'llama-13b', 
   'llama-2-7b-chat', 
   'llama-2-7b', 
@@ -70,6 +71,7 @@ export const modelMaxToken = {
   'alpaca-13b' : 2048,
   'vicuna-13b': 2048,
   'koala-13b': 2048,
+  'falcon-180b-chat': 2048,
   'llama-13b': 2048, 
   'llama-2-7b-chat': 8192, 
   'llama-2-7b': 8192, 
@@ -151,6 +153,10 @@ export const modelCost = {
     completion: { price: 0.002, unit: 1000 },
   },
   'koala-13b': {
+    prompt: { price: 0.0015, unit: 1000 },
+    completion: { price: 0.002, unit: 1000 },
+  },
+  'falcon-180b-chat': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
   },
