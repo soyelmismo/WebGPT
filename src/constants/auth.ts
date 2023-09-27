@@ -4,13 +4,11 @@ export const defaultAPIEndpoint =
 
 const additionalEndpoints = [
   'https://api.openai.com/v1/chat/completions',
-  'https://chimeragpt.adventblocks.cc/api/v1/chat/completions',
   'https://api.naga.ac/v1/chat/completions',
-  'https://free.catto.codes/v1/chat/completions',
-  'https://api.hypere.app/v1/chat/completions',
-  'https://api.catto.codes/v1/chat/completions',
-  'https://api.pawan.krd/v1/chat/completions',
   'https://api.daku.tech/v1/chat/completions',
+  'https://api.nova-oss.com/v1/chat/completions',
+  'https://zukijourney.xyzbot.net/v1/chat/completions',
+  'https://api.mmw1984.link/v1/chat/completions'
 ];
 
 export const allEndpoints = [officialAPIEndpoint, ...additionalEndpoints];
