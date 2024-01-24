@@ -1,5 +1,4 @@
 import { Prompt } from './prompt';
-import { Prompt } from './prompt';
 import { Theme } from './theme';
 
 export type Role = 'user' | 'assistant' | 'system';
