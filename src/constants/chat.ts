@@ -69,6 +69,10 @@ export const modelOptions: ModelOptions[] = [
   'oasst-pythia-12b',
   'oasst-pythia-2-12b',
   'oasst-sft-6-llama-30b',
+  'pai-001',
+  'pai-001-light',
+  'pai-001-rp',
+  'pai-001-light-rp',
   'palm',
   'palm-2',
   'qwen-7b',
@@ -141,6 +145,10 @@ export const modelMaxToken = {
   'oasst-pythia-12b': 2048,
   'oasst-pythia-2-12b': 2048,
   'oasst-sft-6-llama-30b': 2048,
+  'pai-001': 32768,
+  'pai-001-light': 16384,
+  'pai-001-rp': 32768,
+  'pai-001-light-rp': 16384,
   'palm': 2048,
   'palm-2': 2048,
   'qwen-7b': 2048,
@@ -256,6 +264,10 @@ export const modelCost = {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
   },
+  'gpt-3.5-turbo-1106': {
+    'prompt': { price: 0.001, unit: 1000 },
+    'completion': { price: 0.0015, unit: 1000 },
+  },
   'gpt-3.5-turbo-16k': {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
@@ -268,10 +280,6 @@ export const modelCost = {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
   },
-  'gpt-3.5-turbo-1106': {
-    prompt: { price: 0.001, unit: 1000 },
-    completion: { price: 0.0015, unit: 1000 },
-  },
   'gpt-4': {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
@@ -283,6 +291,10 @@ export const modelCost = {
   'gpt-4-0613': {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
+  },
+  'gpt-4-1106-preview': {
+    'prompt': { price: 0.01, unit: 1000 },
+    'completion': { price: 0.03, unit: 1000 },
   },
   'gpt-4-32k': {
     'prompt': {'price': 0.0015, 'unit': 1000},
@@ -360,6 +372,22 @@ export const modelCost = {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
   },
+  'pai-001': {
+    'prompt': {'price': 0.0015, 'unit': 1000},
+    'completion': {'price': 0.002, 'unit': 1000},
+  },
+  'pai-001-light': {
+    'prompt': {'price': 0.0015, 'unit': 1000},
+    'completion': {'price': 0.002, 'unit': 1000},
+  },
+  'pai-001-rp': {
+    'prompt': {'price': 0.0015, 'unit': 1000},
+    'completion': {'price': 0.002, 'unit': 1000},
+  },
+  'pai-001-light-rp': {
+    'prompt': {'price': 0.0015, 'unit': 1000},
+    'completion': {'price': 0.002, 'unit': 1000},
+  },
   'palm': {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
@@ -423,11 +451,7 @@ export const modelCost = {
   'you-chat': {
     'prompt': {'price': 0.0015, 'unit': 1000},
     'completion': {'price': 0.002, 'unit': 1000},
-  },
-  'gpt-4-1106-preview': {
-    prompt: { price: 0.01, unit: 1000 },
-    completion: { price: 0.03, unit: 1000 },
-  },
+  }
 };
 
 export const defaultUserMaxToken = 3500;
